@@ -3,28 +3,29 @@ package services;
 import java.util.Calendar;
 import java.util.Date;
 
-import entities.Contract;
-import entities.Installment;
+import entities.payment.Credit;
+import entities.payment.Installment;
 
-public class ContractService {
+public class CreditService {
 
 	private OnlinePaymentService onlinePaymentService;
 	
-	public ContractService(OnlinePaymentService onlinePaymentService) {
+	public CreditService(OnlinePaymentService onlinePaymentService) {
 		this.onlinePaymentService = onlinePaymentService;
 	}
 	
-	public void processContract(Contract contract, int months) {
-		double basicQuota = contract.getTotalValue() / months;
+	public void processContract(Credit credit, int months) {
+		double basicQuota = credit.getPrice() / months;
+		
 		for (int i = 1; i <= months; i++) {
 			double updatedQuota = basicQuota + onlinePaymentService.interest(basicQuota, i);
 			
 			double fullQuota = updatedQuota + onlinePaymentService.paymentFee(updatedQuota);
 			
-			Date dueDate = addMonths(contract.getDate(), i);
+			Date dueDate = addMonths(credit.getDate(), i);
 			
 			Installment installment = new Installment(dueDate, fullQuota);
-			contract.getInstallments().add(installment);
+			credit.getInstallments().add(installment);
 		}
 	}
 	

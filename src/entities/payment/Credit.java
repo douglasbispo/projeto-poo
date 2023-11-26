@@ -1,23 +1,19 @@
-package entities;
+package entities.payment;
 
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-public class Contract {
+public class Credit extends FormPayment {
 	private Integer number;
 	private Date date;
-	private Double totalValue;
 	
-	List<Installment> installments = new ArrayList<Installment>();
-	
-	public Contract() {}
+	private List<Installment> installments = new ArrayList<Installment>();
 
-	public Contract(Integer number, Date date, Double totalValue) {
-		super();
+	public Credit(Integer number, Date date, Double price) {
+		super(price);
 		this.number = number;
 		this.date = date;
-		this.totalValue = totalValue;
 	}
 
 	public Integer getNumber() {
@@ -36,18 +32,7 @@ public class Contract {
 		this.date = date;
 	}
 
-	public Double getTotalValue() {
-		return totalValue;
-	}
-
-	public void setTotalValue(Double totalValue) {
-		this.totalValue = totalValue;
-	}
-
 	public List<Installment> getInstallments() {
 		return installments;
 	}
-
-	
-	
 }

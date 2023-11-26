@@ -1,4 +1,4 @@
-package entities;
+package entities.payment;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -13,7 +13,6 @@ public class Installment {
 	public Installment() {}
 
 	public Installment(Date dueDate, Double amount) {
-		super();
 		this.dueDate = dueDate;
 		this.amount = amount;
 	}
@@ -36,7 +35,7 @@ public class Installment {
 
 	@Override
 	public String toString() {
-		return sdf.format(dueDate) + " - " + String.format("%.2f", amount);
+		return sdf.format(this.getDueDate()) + " - " + utils.Utils.convertCurrency(this.getAmount());
 	}
 	
 	
