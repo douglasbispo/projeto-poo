@@ -97,7 +97,8 @@ public class Cart {
 		} else {
 			System.out.println("--------------------------------------------");
 			System.out.println("----------- Carrinho está vazio! -----------");
-			System.out.println("--------------------------------------------");
+			System.out.println("-- Para adicionar vá à lista de produtos ---");
+			System.out.println("--------------------------------------------\n\n");
 		}
 	}
 

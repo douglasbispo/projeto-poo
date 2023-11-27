@@ -1,4 +1,4 @@
-package entities;
+package entities.user;
 
 public class User implements UserImplementation {
 	private static Integer count = 1;

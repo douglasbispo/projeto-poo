@@ -1,4 +1,4 @@
-package entities;
+package entities.user;
 
 public class Client extends User {
 	private static Integer count = 1;
@@ -6,15 +6,16 @@ public class Client extends User {
 	private Integer idClient;
 	private String name;
 	private String cpf;
-	private String adress;
+	private Address address;
 	
 	public Client() {}
 
-	public Client(String name, String cpf, String adress) {
+	public Client(String name, String cpf, Address address, String email, String password) {
+		super(email, password);
 		this.idClient = Client.count;
 		this.name = name;
 		this.cpf = cpf;
-		this.adress = adress;
+		this.address = address;
 		Client.count += 1;
 	}
 
@@ -38,19 +39,26 @@ public class Client extends User {
 		this.cpf = cpf;
 	}
 
-	public String getAdress() {
-		return adress;
+	public Address getAddress() {
+		return address;
 	}
 
-	public void setAdress(String adress) {
-		this.adress = adress;
+	public void setAddress(Address address) {
+		this.address = address;
 	}
 
 	@Override
 	public String toString() {
 		return	"ID: " + this.getIdClient() + 
+				"\nEmail: " + super.getEmail() + 
+				"\nPassword: " + super.getPassword() + 
 				"\nNome: " + this.getName() + 
 				"\nCPF: " + this.getCpf() + 
-				"\nEndereço: " + this.getAdress() + "\n";
+				"\n\nEndereço: " + 
+				"\nRua: " + address.getStreet() +
+				"\nNumero: " + address.getNumber() +
+				"\nBairro: " + address.getNeighborhood() +
+				"\nCEP: " + address.getCep() +
+				"\nCidade: " + address.getCity() + "\n";
 	}
 }

@@ -8,9 +8,9 @@ import java.util.List;
 
 import entities.Cart;
 import entities.Product;
-import entities.User;
 import entities.payment.Credit;
 import entities.payment.Installment;
+import entities.user.User;
 import services.CreditService;
 import services.PaypalService;
 
