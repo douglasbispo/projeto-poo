@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-public class Credit extends FormPayment {
+public class Credit extends FormOfPayment {
 	private Integer number;
 	private Date date;
 	

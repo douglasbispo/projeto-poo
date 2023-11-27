@@ -10,7 +10,6 @@ import entities.Cart;
 import entities.Product;
 import entities.payment.Credit;
 import entities.payment.Installment;
-import entities.user.User;
 import services.CreditService;
 import services.PaypalService;
 
@@ -20,7 +19,7 @@ public class Test {
 		SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
 		
 		List<Product> pro = new ArrayList<Product>();
-		List<User> user = new ArrayList<User>();
+		//List<User> user = new ArrayList<User>();
 		
 		Product p1 = new Product("Notebook", 5000.0, "Descrição", 10);
 		Product p2 = new Product("Ram", 400.0, "Ddr4 8Gb", 20);
@@ -28,9 +27,9 @@ public class Test {
 		pro.add(p1);
 		pro.add(p2);
 		
-		for (Product cli : pro) {
+		//for (Product cli : pro) {
 			//System.out.println(cli);
-		}
+		//}
 		
 		Cart c = new Cart();
 		
@@ -39,8 +38,8 @@ public class Test {
 		
 		c.displayProducts();
 		
-		Integer id = 2;
-		Integer amount = 1;
+		//Integer id = 2;
+		//Integer amount = 1;
 		//System.out.println("Editar: " + c.editQuantity(id, amount));
 		
 		c.displayProducts();

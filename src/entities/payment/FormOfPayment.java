@@ -1,10 +1,10 @@
 package entities.payment;
 
-public class FormPayment {
+public class FormOfPayment {
 	
 	protected Double price;
 	
-	public FormPayment(Double price) {
+	public FormOfPayment(Double price) {
 		this.price = price;
 	}
 
