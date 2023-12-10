@@ -120,7 +120,7 @@ public class PaymentController {
 				System.out.println("");
 
 				while (months < 3 || months > 12) {
-					System.out.println("quantidade invalida!\n");
+					System.err.println("quantidade invalida!\n");
 					System.out.print("Digite novamente: ");
 					months = input.nextInt();
 					System.out.println("");
@@ -158,7 +158,7 @@ public class PaymentController {
 						paymentMenu();
 					}
 				} catch (RuntimeException e) {
-					System.out.println(e.getMessage());
+					System.err.println(e.getMessage());
 					System.out.println("");
 					paymentMenu();
 				}
@@ -222,7 +222,7 @@ public class PaymentController {
 				System.out.println("");
 
 				while (months < 3 || months > 12) {
-					System.out.println("Quantidade invalida!\n");
+					System.err.println("Quantidade invalida!\n");
 					System.out.print("Digite novamente: ");
 					months = input.nextInt();
 					System.out.println("");
@@ -260,7 +260,7 @@ public class PaymentController {
 						paymentMenu();
 					}
 				} catch (RuntimeException e) {
-					System.out.println(e.getMessage());
+					System.err.println(e.getMessage());
 					System.out.println("");
 					paymentMenu();
 				}
@@ -306,7 +306,7 @@ public class PaymentController {
 
 			switch (option) {
 			case 1:
-				MainProgram.mainMenu();
+				ProductController.showProducts();
 			case 2:
 				System.out.println("Sessão encerrada!");
 				System.out.println("Volte sempre...");

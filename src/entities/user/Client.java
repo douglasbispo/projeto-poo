@@ -59,6 +59,6 @@ public class Client extends User {
 				"\nNumero: " + address.getNumber() +
 				"\nBairro: " + address.getNeighborhood() +
 				"\nCEP: " + address.getCep() +
-				"\nCidade: " + address.getCity() + "\n";
+				"\nCidade: " + address.getCity();
 	}
 }

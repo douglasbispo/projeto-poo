@@ -25,7 +25,8 @@ public class UserController {
 			System.out.println("--------------------------------------------");
 			System.out.print("| Opção 1 - Cadastro                       |\r\n"
 					+ "| Opção 2 - Login                          |\r\n"
-					+ "| Opção 3 - Encerrar                       |\r\n"
+					+ "| Opção 3 - Listar usários                 |\r\n"
+					+ "| Opção 4 - Encerrar                       |\r\n"
 					+ "--------------------------------------------\r\n" + ">> ");
 			int option = input.nextInt();
 			System.out.println("");
@@ -38,6 +39,9 @@ public class UserController {
 				login();
 				break;
 			case 3:
+				listUsers();
+				break;
+			case 4:
 				System.out.println("Progrma encerrado!");
 				System.exit(option);
 			default:
@@ -113,5 +117,23 @@ public class UserController {
 		System.out.println("Email ou senha incorreto!");
 		System.out.println("____________________________________________\n\n\n");
 		homeMenu();
+	}
+
+	// Listar usuários
+	public static void listUsers() {
+		int count = 1;
+		if (clientList.size() > 0) {
+			System.out.println("------------ LISTA DE CLIENTES -------------");
+			for (Client c : clientList) {
+				System.out.println(count + "° USÁRIO");
+				System.out.println(c);
+				System.out.println("--------------------------------------------\n");
+				count++;
+			}
+			homeMenu();
+		} else {
+			System.out.println("Nenhum usuário cadastrado!\n");
+			MainProgram.mainMenu();
+		}
 	}
 }

@@ -83,8 +83,8 @@ public class ProductController {
 			System.out.println("\nProduto adicionado com sucesso!\n");
 			MainProgram.mainMenu();
 		} catch (InputMismatchException e) {
-			input.nextLine();
 			System.err.println("\nPor favor, digite um número!\n");
+			input.nextLine();
 			createProduct();
 		}
 	}
