@@ -14,7 +14,7 @@ public class UserController {
 	private static Client client = new Client();
 	private static Address address = new Address();
 	public static List<Client> clientList = new ArrayList<Client>();
-	
+
 	// menu
 	public static void homeMenu() {
 		try {
@@ -46,49 +46,61 @@ public class UserController {
 				break;
 			}
 		} catch (InputMismatchException e) {
-			System.out.println("Por favor, digite um número!");
+			System.err.println("\nPor favor, digite um número!\n");
+			input.nextLine();
+			homeMenu();
 		}
 	}
 
 	// Cadastrar cliente
 	public static void createClient() {
-		System.out.println("DIGITE OS DADOS DO USUÁRIO");
-		System.out.print("Nome: ");
-		String name = input.next();
-		System.out.print("CPF: ");
-		String cpf = input.next();
-		System.out.print("E-mail: ");
-		String email = input.next();
-		System.out.print("Senha: ");
-		String password = input.next();
+		try {
+			System.out.println("DIGITE OS DADOS DO USUÁRIO");
+			input.nextLine();
+			System.out.print("Nome: ");
+			String name = input.nextLine();
+			System.out.print("CPF: ");
+			String cpf = input.nextLine();
+			System.out.print("E-mail: ");
+			String email = input.nextLine();
+			System.out.print("Senha: ");
+			String password = input.nextLine();
 
-		System.out.println("\nEdereço");
-		System.out.print("CEP: ");
-		String cep = input.next();
-		System.out.print("Rua: ");
-		String street = input.next();
-		System.out.print("Número: ");
-		Integer number = input.nextInt();
-		System.out.print("Bairro: ");
-		String neighborhood = input.next();
-		System.out.print("Cidade: ");
-		String city = input.next();
+			System.out.println("\nEdereço");
+			System.out.print("CEP: ");
+			String cep = input.nextLine();
+			System.out.print("Rua: ");
+			String street = input.nextLine();
+			System.out.print("Número: ");
+			Integer number = input.nextInt();
+			input.nextLine();
+			System.out.print("Bairro: ");
+			String neighborhood = input.nextLine();
+			System.out.print("Cidade: ");
+			String city = input.nextLine();
 
-		address = new Address(cep, street, number, neighborhood, city);
-		client = new Client(name, cpf, address, email, password);
-		clientList.add(client);
-		System.out.println("\nUsuário cadastrado com sucesso!\n");
-		homeMenu();
+			address = new Address(cep, street, number, neighborhood, city);
+			client = new Client(name, cpf, address, email, password);
+			clientList.add(client);
+			System.out.println("\nUsuário cadastrado com sucesso!\n");
+			
+			homeMenu();
+
+		} catch (InputMismatchException e) {
+			System.err.println("\nPor favor, digite um número!\n");
+			createClient();
+		}
 	}
 
 	// Fazer login
 	public static void login() {
 		System.out.println("____________________________________________");
 		System.out.println("_______________ MENU LOGIN _________________\n");
+		input.nextLine();
 		System.out.print("E-mail: ");
-		String email = input.next();
+		String email = input.nextLine();
 		System.out.print("Senha: ");
-		String password = input.next();
+		String password = input.nextLine();
 		System.out.println("____________________________________________\n");
 
 		for (Client c : clientList) {

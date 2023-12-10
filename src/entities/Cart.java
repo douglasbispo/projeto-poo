@@ -9,7 +9,6 @@ public class Cart {
 	private Integer idCart;
 	private Integer amount;
 	private Map<Product, Integer> products;
-	private Order order;
 	
 	public Cart() {
 		this.idCart = Cart.count;
@@ -27,15 +26,6 @@ public class Cart {
 
 	public void setAmount(Integer amount) {
 		this.amount = amount;
-	}
-
-
-	public Order getOrder() {
-		return order;
-	}
-
-	public void setOrder(Order order) {
-		this.order = order;
 	}
 	
 	public Map<Product, Integer> getProducts() {
@@ -71,6 +61,13 @@ public class Cart {
 		return false;
 	}
 	
+	// limpar carrinho
+	public void cleanCart() {
+		if (products.size() > 0) {
+			products.clear();			
+		}
+	}
+	
 	// Mostrar valor total do carrinho
 	public Double totalValue() {
 		Double purchasePrice = 0.0;
@@ -92,7 +89,7 @@ public class Cart {
 				System.out.println("Quantidade: " + products.get(p).byteValue() + "\n");
 			}
 			System.out.println("--------------------------------------------");
-			System.out.println("Valor Total: " + totalValue());
+			System.out.println("Valor Total: " + utils.Utils.convertCurrency(totalValue()));
 			System.out.println("--------------------------------------------");
 		} else {
 			System.out.println("--------------------------------------------");
@@ -100,9 +97,5 @@ public class Cart {
 			System.out.println("-- Para adicionar vá à lista de produtos ---");
 			System.out.println("--------------------------------------------\n\n");
 		}
-	}
-
-	public static void quantityChange() {
-
 	}
 }

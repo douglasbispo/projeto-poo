@@ -1,6 +1,6 @@
 package services;
 
-public class PaypalService implements OnlinePaymentService {
+public class PaypalService implements ICreditPaymentService {
 	
 	private static final double PAYMENT_FEE = 0.02;
 	private static final double MONTHLY_INTEREST = 0.01;

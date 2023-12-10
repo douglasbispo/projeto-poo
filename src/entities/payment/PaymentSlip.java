@@ -4,20 +4,26 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-public class Credit {
+public class PaymentSlip {
+	
 	private Date date = new Date();
-	protected Double price;
+	private Double price;
 	
 	private List<Installment> installments = new ArrayList<Installment>();
+	
+	public PaymentSlip() {}
 
-	public Credit() {}
-
-	public Credit(Double price) {
+	public PaymentSlip(Double price) {
+		super();
 		this.price = price;
 	}
 
 	public Date getDate() {
 		return date;
+	}
+
+	public void setDate(Date date) {
+		this.date = date;
 	}
 
 	public Double getPrice() {
@@ -30,5 +36,5 @@ public class Credit {
 
 	public List<Installment> getInstallments() {
 		return installments;
-	}
+	}	
 }

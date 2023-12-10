@@ -4,6 +4,7 @@ import java.util.InputMismatchException;
 import java.util.Scanner;
 
 import app.controllers.CartController;
+import app.controllers.PaymentController;
 import app.controllers.ProductController;
 import app.controllers.UserController;
 import entities.Product;
@@ -14,8 +15,8 @@ public class MainProgram {
 	private static Scanner input = new Scanner(System.in);
 
 	public static void main(String[] args) {
-		Product p1 = new Product("Notebook", 3000.0, "Ryzen 5 5500u, 8 gb ram ddr4, ssd 256gb", 10);
-		Product p2 = new Product("Memória ram", 200.0, "Ddr4 8Gb 3600MHz", 20);
+		Product p1 = new Product("Notebook", 3000.0, "Ryzen 5 5500u, 8 gb ram ddr4, ssd 256gb");
+		Product p2 = new Product("Memória ram", 200.0, "Ddr4 8Gb 3600MHz");
 		
 		ProductController.productList.add(p1);
 		ProductController.productList.add(p2);
@@ -24,10 +25,9 @@ public class MainProgram {
 		Client c1 = new Client("Douglas", "111.111.111-11", address, "douglas", "123");
 		
 		UserController.clientList.add(c1);
-		//String email = JOptionPane.showInputDialog("Email: ");
 		
-		mainMenu();
-		//UserController.homeMenu();
+		//mainMenu();
+		UserController.homeMenu();
 	}
 	
 	// menu principal 
@@ -41,7 +41,7 @@ public class MainProgram {
 			System.out.print("| Opção 1 - Cadastrar produto              |\r\n"+
 							 "| Opção 2 - Lista de produtos              |\r\n"+
 							 "| Opção 3 - Ver carrinho                   |\r\n"+
-							 "| Opção 4 -                                |\r\n"+
+							 "| Opção 4 - Comprar                        |\r\n"+
 							 "| Opção 5 - Logout                         |\r\n"+
 							 "--------------------------------------------\r\n"+
 					 		 ">> ");
@@ -53,14 +53,13 @@ public class MainProgram {
 				ProductController.createProduct();
 				break;
 			case 2:
-				System.out.println("");
 				ProductController.showProducts();
 				break;
 			case 3:
-				System.out.println("");
 				CartController.showCart();
 				break;
 			case 4:
+				PaymentController.paymentMenu();
 				break;
 			case 5:
 				System.out.print("Tem certeza que deseja sair (S/N): ");

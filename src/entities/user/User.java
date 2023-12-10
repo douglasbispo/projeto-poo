@@ -1,6 +1,6 @@
 package entities.user;
 
-public class User implements UserImplementation {
+public class User {
 	private static Integer count = 1;
 	
 	private Integer idUser;
@@ -35,25 +35,11 @@ public class User implements UserImplementation {
 	public void setPassword(String password) {
 		this.password = password;
 	}
-
-	
 	
 	@Override
 	public String toString() {
 		return "ID: " + this.getIdUser() + 
 				"\nE-mail: " + this.getEmail() + 
 				"\nSenha: " + this.getPassword() + "\n";
-	}
-
-	@Override
-	public void createUser() {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void deleteUser() {
-		// TODO Auto-generated method stub
-		
-	};	
+	}	
 }

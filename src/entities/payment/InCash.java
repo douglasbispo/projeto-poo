@@ -1,10 +1,11 @@
 package entities.payment;
 
-public class FormOfPayment {
+public class InCash {
+	private Double price;
 	
-	protected Double price;
-	
-	public FormOfPayment(Double price) {
+	public InCash() {}
+
+	public InCash(Double price) {
 		this.price = price;
 	}
 
@@ -15,4 +16,5 @@ public class FormOfPayment {
 	public void setPrice(Double price) {
 		this.price = price;
 	}
+		
 }

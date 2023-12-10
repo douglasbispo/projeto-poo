@@ -9,16 +9,14 @@ public class Product {
 	private String name;
 	private Double price;
 	private String description;
-	private Integer amount;
 	
 	public Product() {}
 
-	public Product(String name, Double price, String description, Integer amount) {
+	public Product(String name, Double price, String description) {
 		this.idProduct = Product.count;
 		this.name = name;
 		this.price = price;
 		this.description = description;
-		this.amount = amount;
 		Product.count += 1; 
 	}
 
@@ -48,14 +46,6 @@ public class Product {
 
 	public void setDescription(String description) {
 		this.description = description;
-	}
-
-	public Integer getAmount() {
-		return amount;
-	}
-
-	public void setAmount(Integer amount) {
-		this.amount = amount;
 	}
 
 	@Override
